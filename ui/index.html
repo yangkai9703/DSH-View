@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DSH-View (unofficial)</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header id="titlebar">
+    <div class="tb-left" data-tauri-drag-region>
+      <img class="tb-logo" src="whale.svg" alt="" draggable="false" data-tauri-drag-region />
+      <span class="tb-title" data-tauri-drag-region>DSH-View (unofficial)</span>
+    </div>
+    <div class="tb-right">
+      <button id="btn-min" class="tb-btn" title="最小化" aria-label="最小化">
+        <svg viewBox="0 0 12 12" width="12" height="12"><path d="M1 6h10" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>
+      </button>
+      <button id="btn-max" class="tb-btn" title="最大化/还原" aria-label="最大化">
+        <svg viewBox="0 0 12 12" width="12" height="12"><rect x="1.5" y="1.5" width="9" height="9" rx="1" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>
+      </button>
+      <button id="btn-close" class="tb-btn tb-btn-close" title="关闭" aria-label="关闭">
+        <svg viewBox="0 0 12 12" width="12" height="12"><path d="M2 2l8 8M10 2l-8 8" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="stage">
+    <!-- 启动占位页，DSH 就绪后被 iframe 替换 -->
+    <div id="placeholder">
+      <div id="ph-card">
+        <div id="ph-spinner" class="show"></div>
+        <div id="ph-title">正在启动 DeepSeek Harness…</div>
+        <div id="ph-detail">首次运行需要下载依赖，可能需要一两分钟</div>
+        <div id="ph-error" hidden></div>
+        <button id="ph-retry" hidden>重试</button>
+      </div>
+    </div>
+    <!-- DSH 界面容器 -->
+    <iframe id="dsh-frame" hidden title="DeepSeek Harness"></iframe>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
