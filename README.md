@@ -34,7 +34,7 @@
 
 ## 🚀 快速开始
 
-1. 前往 [Releases](../../releases) 页面,下载最新版本的 `dsh-shell.exe`(或安装包)。
+1. 前往 [Releases](../../releases) 页面,下载最新版的 `DSH-View.exe`。
 2. 双击运行即可。
 3. 首次运行 SmartScreen 可能弹出"未知发布者"提示——这是因为 exe 未做代码签名。请点击 **"更多信息" → "仍要运行"** 继续。
 4. 窗口显示「正在启动 DeepSeek Harness…」,首次需下载依赖,可能要一两分钟;之后每次启动都会很快。
@@ -52,19 +52,21 @@
 构建步骤:
 
 ```bat
-git clone https://github.com/<your-org>/DSH-View.git
+git clone https://github.com/yangkai9703/DSH-View.git
 cd DSH-View
 npm install
-scripts\build_env.bat cargo tauri build
+scripts\build_env.bat npm run build
 ```
 
-> `scripts\build_env.bat` 会自动探测本地 MSVC `vcvars64.bat` 并初始化 x64 构建环境,然后在 `src-tauri/` 子目录执行你传入的命令(如 `cargo check`、`cargo tauri build` 等)。
+> `scripts\build_env.bat` 会自动探测本地 MSVC `vcvars64.bat` 并初始化 x64 构建环境,然后在 `src-tauri/` 子目录执行你传入的命令(如 `cargo check`、`npm run build` 等)。
+>
+> 构建产物:`src-tauri/target/release/dsh-shell.exe`;NSIS 安装包在 `src-tauri/target/release/bundle/nsis/`。
 
 开发模式:
 
 ```bat
 npm install
-scripts\build_env.bat cargo tauri dev
+scripts\build_env.bat npm run dev
 ```
 
 ## ❓ FAQ
