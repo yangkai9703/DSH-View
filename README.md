@@ -24,7 +24,7 @@
 
 ## 📷 截图
 
-<!-- TODO: 截图 -->
+![DSH-View 截图](docs/screenshot.png)
 
 ## 📋 前置条件
 
